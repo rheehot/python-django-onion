@@ -15,4 +15,15 @@ inject==4.3.1
 ```pip install -r requirements.txt```
 
 
+### Scenario
+customer can order coffee to cafe
+
+
+### Structure
+* Application service : application service orchestrate specific business scenario.
+* Object service : 
+* Domain model: 
+
+
+
 
