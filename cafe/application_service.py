@@ -1,14 +1,6 @@
 import inject
 
-from cafe.models import Cafe, Order
-
-
-# class OrderCoffeeService:
-#     # same as usecase
-#     def order_coffee(self, cafe_id: int, customer_id: int):
-#         cafe = Cafe.objects.get(pk=cafe_id)
-#         order = Order.objects.create(cafe_id=cafe.id, customer_id=customer_id)
-#         order.save()
+from cafe.models import Order
 from cafe.object_service import CafeRepository
 
 
@@ -19,8 +11,7 @@ class OrderCoffeeService:
         self._cafe_repository = cafe_repository
 
     def order_coffee(self, cafe_id: int, customer_id: int):
-        cafe = Cafe.objects.get(pk=cafe_id)
-        order = Order.objects.create(cafe_id=cafe.id, customer_id=customer_id)
+        order = Order.objects.create(cafe_id=cafe_id, customer_id=customer_id)
         order.save()
 
 
