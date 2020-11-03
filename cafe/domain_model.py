@@ -1,16 +1,20 @@
 from dataclasses import dataclass
 
-from cafe.models import Order
+from cafe.models import Order, Cafe, Customer
 
 
 @dataclass
-class Cafe:
+class CafeDomainModel:
     id: int
     name: str
 
     def __init__(self, id: int, name: str):
         self.id = id
         self.name = name
+
+    @classmethod
+    def of(cls, cafe: Cafe):
+        return cls(id=cafe.id, name=cafe.name)
 
 
 @dataclass
@@ -21,6 +25,10 @@ class Customer:
     def __init__(self, id: int, name: str):
         self.id = id
         self.name = name
+
+    @classmethod
+    def of(cls, customer: Customer):
+        return cls(id=customer.id, name=customer.name)
 
 
 @dataclass
