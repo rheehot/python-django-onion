@@ -16,6 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from cafe.views import get_order
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('order', get_order)
 ]

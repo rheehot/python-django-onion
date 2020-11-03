@@ -23,8 +23,15 @@ class CafeObjectService(ObjectService):
 
 
 class OrderObjectService(ObjectService):
-    def get(self, order_id: int) -> Cafe:
-        return Order.objects.get(pk=order_id)
+    def get(self, order_id: int) -> Order:
+        try:
+            return Order.objects.get(pk=order_id)
+        except Order.DoesNotExist:
+            raise Exception('Order Does not exist')
 
     def save(self, order: Order) -> NoReturn:
         order.save()
+
+
+cafe_object_service = CafeObjectService()
+order_object_service = OrderObjectService()
