@@ -6,17 +6,17 @@ from cafe.models import Cafe, Order
 
 class ObjectService(abc.ABC):
     @abc.abstractmethod
-    def get(self, cafe_id: int):
+    def get(self, pk: int):
         pass
 
     @abc.abstractmethod
-    def save(self, cafe: Cafe):
+    def save(self, arg):
         pass
 
 
 class CafeObjectService(ObjectService):
-    def get(self, cafe_id: int) -> Cafe:
-        return Cafe.objects.get(pk=cafe_id)
+    def get(self, pk: int) -> Cafe:
+        return Cafe.objects.get(pk=pk)
 
     def save(self, cafe: Cafe) -> NoReturn:
         cafe.save()
