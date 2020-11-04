@@ -18,7 +18,7 @@ class CafeDomainModel:
 
 
 @dataclass
-class Customer:
+class CustomerDomainModel:
     id: int
     name: str
 
