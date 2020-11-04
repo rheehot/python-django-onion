@@ -4,7 +4,7 @@ from typing import NoReturn
 from cafe.models import Cafe, Order
 
 
-class ObjectService(abc.ABC):
+class DomainService(abc.ABC):
     @abc.abstractmethod
     def get(self, pk: int):
         pass
@@ -14,7 +14,7 @@ class ObjectService(abc.ABC):
         pass
 
 
-class CafeObjectService(ObjectService):
+class CafeDomainService(DomainService):
     def get(self, pk: int) -> Cafe:
         return Cafe.objects.get(pk=pk)
 
@@ -22,7 +22,7 @@ class CafeObjectService(ObjectService):
         cafe.save()
 
 
-class OrderObjectService(ObjectService):
+class OrderDomainService(DomainService):
     def get(self, order_id: int) -> Order:
         try:
             return Order.objects.get(pk=order_id)
@@ -33,5 +33,5 @@ class OrderObjectService(ObjectService):
         order.save()
 
 
-cafe_object_service = CafeObjectService()
-order_object_service = OrderObjectService()
+cafe_domain_service = CafeDomainService()
+order_domain_service = OrderDomainService()
